@@ -1,0 +1,5 @@
+.build
+.env
+lib
+venv
+__pycache__
