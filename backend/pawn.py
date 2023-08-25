@@ -15,14 +15,14 @@ class Pawn(Piece):
         Piece.move(self, board, new_col, new_row)
 
     # click, it shows all the squares you can move to
-    def can_move(self, board: List[List[Piece]]) -> List: # todo: en passant!!!!!!!!!!!!!!!!!!!
+    def can_move(self, board: List[List[Piece]]) -> List:  # todo: en passant!!!!!!!!!!!!!!!!!!!
         # list of movable squares
         movable_squares: List[Coordinate] = []
         multiplier = self.color.value
 
         move_target = board[self.coordinate.row + multiplier][self.coordinate.col]  # pawns will never be able to move
-                                                                                    # out of bounds since they will
-                                                                                    # become a new piece
+        # out of bounds since they will
+        # become a new piece
 
         attack_vert = self.coordinate.row + multiplier
         attack_left = self.coordinate.col - 1
@@ -34,7 +34,7 @@ class Pawn(Piece):
                 Coordinate.__new__(Coordinate).__init__(self.coordinate.row + multiplier, self.coordinate.col))
 
         if not self.hasMoved:
-            move_target = board[self.coordinate.row + 2*multiplier][self.coordinate.col]
+            move_target = board[self.coordinate.row + 2 * multiplier][self.coordinate.col]
 
             if move_target is None:  # todo: cleanup, repeated code snippet
                 movable_squares.append(Coordinate(self.coordinate.row + multiplier, self.coordinate.col))
@@ -50,12 +50,10 @@ class Pawn(Piece):
             if attack_target_left is not None and attack_target_left.color is not self.color:
                 movable_squares.append(attack_target_left.coordinate)
 
-
         return movable_squares
-
 
     def __str__(self):
         color = self.color.name[0]
         coord = str(self.coordinate.row) + str(self.coordinate.col)
 
-        return color+'p'+coord
+        return color + 'p' + coord
