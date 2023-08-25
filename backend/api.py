@@ -1,12 +1,14 @@
-from flask import Flask
-
-app = Flask(__name__)
-
-
-@app.route('/game')
-def hello_world():
-    return "hello!"
+from backend.game import Game
+# from flask import Flask
+#
+# app = Flask(__name__)
+#
+#
+# @app.route('/game')
+# def hello_world():
+#     return "hello!"
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    Game()
+    # app.run(debug=True)
