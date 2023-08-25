@@ -16,7 +16,7 @@ class Piece:
 
     def __init__(self, row: int, col: int, color: Color):
         self.isTaken = False
-        self.coordinate = Coordinate.__new__(Coordinate).__init__(row, col)
+        self.coordinate = Coordinate(row, col)
         self.color = color
 
     def set_taken(self):
@@ -30,4 +30,4 @@ class Piece:
         if occupier is not None:
             occupier.set_taken()
 
-        self.coordinate = Coordinate.__new__(Coordinate).__init__(new_row, new_col)
+        self.coordinate = Coordinate(new_row, new_col)

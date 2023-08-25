@@ -37,8 +37,7 @@ class Pawn(Piece):
             move_target = board[self.coordinate.row + 2*multiplier][self.coordinate.col]
 
             if move_target is None:  # todo: cleanup, repeated code snippet
-                movable_squares.append(
-                    Coordinate.__new__(Coordinate).__init__(self.coordinate.row + multiplier, self.coordinate.col))
+                movable_squares.append(Coordinate(self.coordinate.row + multiplier, self.coordinate.col))
 
         if (Piece.check_bounds(attack_vert, attack_right) and Piece.check_bounds(attack_vert, attack_left)):
             attack_target_right = board[attack_vert][attack_right]
@@ -55,4 +54,8 @@ class Pawn(Piece):
         return movable_squares
 
 
+    def __str__(self):
+        color = self.color.name[0]
+        coord = str(self.coordinate.row) + str(self.coordinate.col)
 
+        return color+'p'+coord
