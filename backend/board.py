@@ -25,8 +25,8 @@ class Board:
                 print(element, end=" ")
             print()  # Move to the next line after each row
 
-    def isColor(self, color: Color) -> bool:
-        for row in self.board:
-            for element in row:
-                print(element, end=" ")
-            print()  # Move to the next line after each row
+    # def isColor(self, color: Color) -> bool:
+    #     for row in self.board:
+    #         for element in row:
+    #             print(element, end=" ")
+    #         print()  # Move to the next line after each row
