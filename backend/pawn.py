@@ -48,8 +48,8 @@ class Pawn(Piece):
             if attack_target_right is not None and attack_target_right.color is not self.color:
                 movable_squares.append(attack_target_right.coordinate)
 
-            if attack_target_2 is not None and attack_target_2.color is not self.color:
-                movable_squares.append(attack_target_2.coordinate)
+            if attack_target_left is not None and attack_target_left.color is not self.color:
+                movable_squares.append(attack_target_left.coordinate)
 
 
         return movable_squares
