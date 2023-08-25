@@ -40,7 +40,7 @@ class Pawn(Piece):
                 movable_squares.append(
                     Coordinate.__new__(Coordinate).__init__(self.coordinate.row + multiplier, self.coordinate.col))
 
-        if (check_bounds(attack_vert, attack_right) and check_bounds(attack_vert, attack_left)):
+        if (Piece.check_bounds(attack_vert, attack_right) and Piece.check_bounds(attack_vert, attack_left)):
             attack_target_right = board[attack_vert][attack_right]
             attack_target_left = board[attack_vert][attack_left]
 

@@ -6,7 +6,7 @@ from backend.coordinate import Coordinate
 
 class Piece:
 
-    def check_bounds(row: int, col: int):
+    def check_bounds(self, row: int, col: int):
         if col < 0 or col > 7:
             return False
         if row < 0 or row > 7:
