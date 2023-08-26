@@ -1,7 +1,4 @@
-from typing import List
-
 from backend.color import Color
-from backend.coordinate import Coordinate
 
 
 class Piece:
@@ -14,20 +11,30 @@ class Piece:
 
         return True
 
-    def __init__(self, row: int, col: int, color: Color):
+    def __init__(self, color: Color, row: int, col: int):
         self.isTaken = False
-        self.coordinate = Coordinate(row, col)
         self.color = color
+        self.row = row
+        self.col = col
 
     def set_taken(self):
         self.isTaken = True
-        # remove the piece from the board
-        # perhaps by setting coords to something outside the board?
+        self.row = None
+        self.col = None
 
-    def move(self, board: List[List['Piece']], new_col: int, new_row: int):
-        occupier = board[new_row][new_col]
+    def move(self, board, new_col: int, new_row: int):
+        pos = board[self.row][self.col]
+        target = board[new_row][new_col]
 
-        if occupier is not None:
-            occupier.set_taken()
+        if not target.isEmpty:
+            target.piece.set_taken()
 
-        self.coordinate = Coordinate(new_row, new_col)
+        self.row = new_row
+        self.col = new_col
+        target.piece = self
+        pos.remove_piece()
+
+    def __str__(self):
+        color = self.color.name[0]
+
+        return color
